@@ -9,7 +9,7 @@ var player:Player:
 var gravity:float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func move(delta: float) -> void:
-	player.velocity.x = player.dir.x * player.speed * delta
+	player.velocity.x = player.dir * player.speed * delta
 	
 func handle_gravity(delta):
 	player.velocity.y += gravity * delta

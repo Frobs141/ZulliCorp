@@ -2,8 +2,8 @@ extends PlayerStateTemplate
 
 func on_physics_process(delta: float):
 	player.velocity.x = 0
-	if player.dir == Vector2.ZERO:
-		player.dir.x = 1 if !player.sprite.flip_h else -1
+	if player.dir == 0:
+		player.dir = 1 if !player.sprite.flip_h else -1
 	handle_gravity(delta)
 	player.move_and_slide()
 
@@ -14,3 +14,5 @@ func on_input(_event: InputEvent):
 		state_machine.change_to(PlayerStates.Dashing)
 	elif Input.is_action_just_pressed("jump"):
 		state_machine.change_to(PlayerStates.Jumping)
+	elif Input.is_action_just_pressed("attack1"):
+		state_machine.change_to(PlayerStates.Attack1)
