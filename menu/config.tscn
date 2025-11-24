@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://dus8wblg4f1aa"]
+
+[ext_resource type="Script" uid="uid://0pn3e6xydaa4" path="res://menu/scripts/config.gd" id="1_48pm4"]
+[ext_resource type="Texture2D" uid="uid://bjre1s0nggw6s" path="res://assets/sprites/4gwr6brwjhu01.png" id="1_ptu1p"]
+[ext_resource type="Script" uid="uid://c0nf5jl8nrqje" path="res://menu/scripts/vol_slider.gd" id="2_2ukym"]
+
+[node name="config" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_48pm4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visibility_layer = 524288
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.09
+anchor_bottom = 1.1680001
+offset_left = -1.0
+offset_right = 4.4400024
+offset_bottom = 5.711975
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+visibility_layer = 262144
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ptu1p")
+expand_mode = 1
+flip_h = true
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+visibility_layer = 131072
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.004
+anchor_right = 0.030000001
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -1.0320001
+offset_right = 390.28
+offset_bottom = 129.0
+
+[node name="Org" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+visibility_layer = 65536
+layout_mode = 2
+
+[node name="Vol" type="HBoxContainer" parent="ColorRect/CenterContainer/Org"]
+visibility_layer = 32768
+layout_mode = 2
+
+[node name="VolPanelContainer" type="PanelContainer" parent="ColorRect/CenterContainer/Org/Vol"]
+layout_mode = 2
+
+[node name="VolLabel" type="Label" parent="ColorRect/CenterContainer/Org/Vol/VolPanelContainer"]
+visibility_layer = 8192
+layout_mode = 2
+text = "Master Volume"
+
+[node name="VolSlider" type="HSlider" parent="ColorRect/CenterContainer/Org"]
+layout_mode = 2
+step = 10.0
+script = ExtResource("2_2ukym")
+
+[node name="VolSliderPanel" type="Panel" parent="ColorRect/CenterContainer/Org"]
+layout_mode = 2
+
+[node name="Con" type="HBoxContainer" parent="ColorRect/CenterContainer/Org"]
+visibility_layer = 32768
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="ColorRect/CenterContainer/Org/Con"]
+layout_mode = 2
+text = "Back"
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/CenterContainer"]
+layout_mode = 2
+
+[node name="Main" type="Node" parent="."]
+
+[connection signal="value_changed" from="ColorRect/CenterContainer/Org/VolSlider" to="ColorRect/CenterContainer/Org/VolSlider" method="_on_value_changed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/Org/Con/BackButton" to="." method="_on_back_button_pressed"]

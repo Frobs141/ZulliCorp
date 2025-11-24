@@ -11,17 +11,28 @@ config_version=5
 [application]
 
 config/name="Proyecto 3er Semestre"
-run/main_scene="uid://cwnuo4sy2g1lt"
+run/main_scene="uid://cinrwwspsupa7"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://assets/sprites/icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://default_bus_layout.master"
+buses/default_bus_layout.custom="master"
+
+[autoload]
+
+AudioManager="*res://audio/AudioManager.tscn"
 
 [display]
 
 window/size/viewport_width=384
 window/size/viewport_height=216
+window/size/resizable=false
 window/size/window_width_override=1152
 window/size/window_height_override=648
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [global_group]
 
