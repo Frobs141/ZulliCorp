@@ -23,6 +23,7 @@ buses/default_bus_layout.custom="master"
 [autoload]
 
 AudioManager="*res://audio/AudioManager.tscn"
+Global="*res://scripts/various/Global.gd"
 
 [display]
 

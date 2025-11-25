@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 const speed:int = 35000
 const dash_speed:int = 60000
-const jump_speed:int = -40000
+const jump_speed:int = -50000
 const max_healt:int = 5
 var attack_damage: int = 10
 var dir: float
