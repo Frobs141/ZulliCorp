@@ -1,7 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://dofw2dwra0afr"]
+[gd_scene load_steps=7 format=3 uid="uid://dofw2dwra0afr"]
 
-[ext_resource type="PackedScene" uid="uid://bdj1rxks0l3yh" path="res://scenes/bosses/Common/BossBaseTemplate.tscn" id="1_1ah81"]
+[ext_resource type="PackedScene" uid="uid://bdj1rxks0l3yh" path="res://scenes/bosses/Common/BossBaseTemplate.tscn" id="1_y64u3"]
+[ext_resource type="Script" path="res://scripts/bosses/SpamOTron/SpamOTron.gd" id="2_z9x8v"]
+[ext_resource type="Script" path="res://scripts/bosses/Common/States/BossIdle.gd" id="3_d5e1f"]
+[ext_resource type="Script" path="res://scripts/bosses/Common/States/BossMove.gd" id="4_g6h2j"]
+[ext_resource type="Script" path="res://scripts/bosses/Common/States/BossAttack.gd" id="5_a4b3c"]
 
-[node name="SpamOTron" type="Node2D"]
+[node name="SpamOTron" instance=ExtResource("1_y64u3")]
+script = ExtResource("2_z9x8v")
 
-[node name="BossBaseTemplate" parent="." instance=ExtResource("1_1ah81")]
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.8, 0.4, 0.1, 1) # Color sucio/óxido para el tema de "Basura"
+region_rect = Rect2(0, 0, 100, 100)
+
+[node name="SpawnPoint" type="Marker2D" parent="." index="3"]
+# Punto de origen de la lluvia de basura (p. ej., justo encima del jefe)
+position = Vector2(0, -60) 
+
+[node name="GarbageTimer" type="Timer" parent="." index="4"]
+# Controla la frecuencia de los proyectiles de Spam (muy rápido)
+wait_time = 0.5
+autostart = true
+
+[node name="MinionTimer" type="Timer" parent="." index="5"]
+# Controla la cadencia de invocación de minions
+wait_time = 10.0
+autostart = true
+
+# --- Máquina de Estados (FSM) ---
+# El nodo StateMachine (index 2) ya existe en la base, solo añadimos los estados hijos.
+[node name="Idle" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("3_d5e1f")
+
+[node name="Move" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("4_g6h2j")
+
+[node name="Attack" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("5_a4b3c")
