@@ -70,7 +70,10 @@ func tp_down(room: Node2D) -> void:
 		level.go_on()
 	elif room.get_node("tp_left"):
 		level.go_back()
-	get_tree().change_scene(level.currentNode.scene)
+	get_tree().change_scene_to_packed(level.currentNode.scene)
+	
+func tp_final() -> void:
+	get_tree().change_scene_to_packed(preload("res://scenes/levels/final_room.tscn"))
 	
 func getFalse(room: Array):
 	return room[1] == false
