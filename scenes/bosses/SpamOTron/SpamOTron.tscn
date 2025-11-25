@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dofw2dwra0afr"]
+[gd_scene load_steps=4 format=3 uid="uid://dofw2dwra0afr"]
 
 [ext_resource type="PackedScene" uid="uid://6g6y4k51clv0" path="res://scenes/bosses/Common/BossBaseTemplate.tscn" id="1_y64u3"]
 [ext_resource type="Script" uid="uid://bc7rych25s4um" path="res://scripts/bosses/SpamOTron/States/SpamOTron.gd" id="2_z9x8v"]
-[ext_resource type="Script" uid="uid://nh05ekvqumlu" path="res://scripts/bosses/Common/States/BossMove.gd" id="4_g6h2j"]
 [ext_resource type="Script" uid="uid://i1pyj05i8ijt" path="res://scripts/bosses/Common/States/BossAttack.gd" id="5_a4b3c"]
 
 [node name="SpamOTron" instance=ExtResource("1_y64u3")]
@@ -11,10 +10,7 @@ script = ExtResource("2_z9x8v")
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(0.8, 0.4, 0.1, 1)
 
-[node name="Move2" type="Node" parent="StateMachine" index="1"]
-script = ExtResource("4_g6h2j")
-
-[node name="Attack" type="Node" parent="StateMachine" index="2"]
+[node name="Attack" type="Node" parent="StateMachine" index="1"]
 script = ExtResource("5_a4b3c")
 
 [node name="SpawnPoint" type="Marker2D" parent="." index="3"]
