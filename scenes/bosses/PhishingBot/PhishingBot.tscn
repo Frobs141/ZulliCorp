@@ -1,7 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://own2f1trd8qq"]
+[gd_scene load_steps=8 format=3 uid="uid://own2f1trd8qq"]
 
-[ext_resource type="PackedScene" uid="uid://bdj1rxks0l3yh" path="res://scenes/bosses/Common/BossBaseTemplate.tscn" id="1_6x2dd"]
+[ext_resource type="PackedScene" uid="uid://bdj1rxks0l3yh" path="res://scenes/bosses/Common/BossBaseTemplate.tscn" id="1_y64u3"]
+[ext_resource type="Script" path="res://scripts/bosses/PhishingBot/PhishingBot.gd" id="2_z9x8v"]
+[ext_resource type="Script" path="res://scripts/bosses/Common/States/BossIdle.gd" id="3_d5e1f"]
+[ext_resource type="Script" path="res://scripts/bosses/Common/States/BossMove.gd" id="4_g6h2j"]
+[ext_resource type="Script" path="res://scripts/bosses/PhishingBot/States/PhishingBotPull.gd" id="5_a4b3c"]
 
-[node name="PhishingBot" type="Node2D"]
+[node name="PhishingBot" instance=ExtResource("1_y64u3")]
+script = ExtResource("2_z9x8v")
 
-[node name="BossBaseTemplate" parent="." instance=ExtResource("1_6x2dd")]
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.2, 0.6, 0.8, 1) # Color azul claro/cielo para el tema de "Phishing/Confianza"
+region_rect = Rect2(0, 0, 100, 100)
+
+[node name="Muzzle" type="Marker2D" parent="." index="3"]
+# Punto de origen del arpón (p. ej., el "arma")
+position = Vector2(50, 0) # Posición al lado derecho del jefe
+
+# --- Máquina de Estados (FSM) ---
+# El nodo StateMachine (index 2) ya existe en la base, solo añadimos los estados hijos.
+[node name="Idle" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("3_d5e1f")
+
+[node name="Move" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("4_g6h2j")
+
+[node name="Pull" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("5_a4b3c")

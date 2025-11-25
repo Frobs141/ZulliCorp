@@ -1,3 +1,28 @@
 [gd_scene format=3 uid="uid://4b7hwoaou60p"]
 
 [node name="Harpoon" type="Area2D"]
+uid="uid://c5sqey46gcuqt"
+
+
+
+[gd_scene load_steps=3 format=3 uid="uid://4b7hwoaou60p"]
+
+[ext_resource type="Script" path="res://scripts/bosses/PhishingBot/Harpoon.gd" id="1_a8t3p"]
+[ext_resource type="Shape2D" uid="uid://c5sqey46gcuqt" path="res://scenes/bosses/PhishingBot/harpoon_collision.tres" id="2_h2g5k"]
+
+[node name="Harpoon" type="Area2D" groups=["boss_projectile"]]
+collision_mask = 2 # Colisiona con el jugador
+script = ExtResource("1_a8t3p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+# Usamos un rectángulo simple para el arpón (línea roja)
+modulate = Color(1, 0, 0, 1) # Color rojo
+texture_filter = 1
+region_enabled = true
+region_rect = Rect2(0, 0, 30, 5) 
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_h2g5k")
+
+# Conexión manual de la señal body_entered al script Harpoon.gd
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

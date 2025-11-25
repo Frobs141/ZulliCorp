@@ -1,3 +1,36 @@
 [gd_scene format=3 uid="uid://bdj1rxks0l3yh"]
 
 [node name="BossBaseTemplate" type="CharacterBody2D"]
+
+
+
+
+[gd_scene load_steps=3 format=3 uid="uid://bdj1rxks0l3yh"]
+
+[ext_resource type="Script" path="res://scripts/bosses/Common/States/Boss.gd" id="1_r9v2w"]
+[ext_resource type="Shape2D" uid="uid://s6kpweu8bte0" path="res://scenes/bosses/Common/boss_collision.tres" id="2_f5y6p"]
+
+[node name="Boss" type="CharacterBody2D" groups=["boss"]]
+script = ExtResource("1_r9v2w")
+# Configuración genérica de capas y máscaras
+collision_layer = 4 # Capa del jefe (ajustar si necesario)
+collision_mask = 2 # Máscara: Colisiona con el jugador (2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+# Placeholder: Se reemplazará en las escenas hijas
+modulate = Color(0.5, 0.5, 0.5, 1) # Gris
+texture_filter = 1
+region_enabled = true
+region_rect = Rect2(0, 0, 100, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_f5y6p")
+
+[node name="StateMachine" type="Node" parent="."]
+# IMPORTANTE: Asignar el script de la máquina de estados base
+script = preload("res://scripts/various/state_machine.gd") 
+
+[node name="AttackTimer" type="Timer" parent="."]
+# Para el cooldown de ataque (se ajusta en el script Boss.gd o hijos)
+wait_time = 3.0
+autostart = true

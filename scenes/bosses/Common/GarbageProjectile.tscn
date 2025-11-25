@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://dha1opyx8rhi1"]
+[gd_scene load_steps=3 format=3 uid="uid://dha1opyx8rhi1"]
 
-[node name="GarbageProjectile" type="Area2D"]
+[ext_resource type="Script" path="res://scripts/bosses/Common/Utils/BossProjectile.gd" id="1_4n228"]
+[ext_resource type="Shape2D" uid="uid://dvi3di8h6js4o" path="res://scenes/bosses/Common/garbage_collision.tres" id="2_c74i5"]
+
+[node name="GarbageProjectile" type="Area2D" groups=["boss_projectile"]]
+collision_mask = 2 # Máscara: Colisiona con el jugador
+script = ExtResource("1_4n228")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+# Placeholder simple. Usa tu propio asset si lo tienes.
+texture = null 
+region_enabled = true
+region_rect = Rect2(0, 0, 20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_c74i5")
+
+# Conexión manual de la señal body_entered al script
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
