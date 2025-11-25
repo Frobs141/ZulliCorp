@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdj1rxks0l3yh"]
+
+# 1. SCRIPTS DEL JEFE BASE
+[ext_resource type="Script" path="res://scripts/bosses/Common/Boss.gd" id="1_r9v2w"]
+[ext_resource type="Shape2D" uid="uid://s6kpweu8bte0" path="res://scenes/bosses/Common/boss_collision.tres" id="2_f5y6p"]
+[ext_resource type="Script" path="res://scripts/bosses/Common/States/BossIdle.gd" id="3_v8x6w"]
+[ext_resource type="Script" path="res://scripts/bosses/Common/States/BossMove.gd" id="4_x9y8z"]
+
+# 2. SCRIPT DE LA MÁQUINA DE ESTADOS (CAMBIO: Usamos ext_resource)
+[ext_resource type="Script" path="res://scripts/various/state_machine.gd" id="5_a0b1c"]
+
+[node name="Boss" type="CharacterBody2D" groups=["boss"]]
+# El script Boss.gd
+script = ExtResource("1_r9v2w")
+# Configuración genérica de capas y máscaras
+collision_layer = 4 
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.5, 0.5, 0.5, 1) 
+texture_filter = 1
+region_enabled = true
+region_rect = Rect2(0, 0, 100, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_f5y6p")
+
+[node name="StateMachine" type="Node" parent="."]
+# AHORA REFERENCIADO POR ID LOCAL (5_a0b1c)
+script = ExtResource("5_a0b1c")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_v8x6w")
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("4_x9y8z")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
