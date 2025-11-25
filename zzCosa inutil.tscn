@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckckqwyse1yiu"]
+[gd_scene load_steps=6 format=3 uid="uid://ckckqwyse1yiu"]
 
 [ext_resource type="Script" uid="uid://bosj2lcqmormm" path="res://zzCosa inutil.gd" id="1_kxuo3"]
 [ext_resource type="Texture2D" uid="uid://bjre1s0nggw6s" path="res://assets/sprites/4gwr6brwjhu01.png" id="2_2cm5a"]
-[ext_resource type="PackedScene" uid="uid://cwnuo4sy2g1lt" path="res://scenes/levels/level_test.tscn" id="3_imu4u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lhcq"]
 bg_color = Color(0.5529412, 0.41960785, 0.42745098, 0.7921569)
@@ -35,12 +34,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.90800005
 anchor_bottom = 0.83300006
-offset_left = -2.0
-offset_top = 6.0
-offset_right = 32.007965
-offset_bottom = 33.085983
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 1.0
+offset_top = 8.0
+offset_right = 35.007965
+offset_bottom = 35.085983
 texture = ExtResource("2_2cm5a")
 expand_mode = 1
 flip_h = true
@@ -74,8 +71,6 @@ text = "Option"
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_0oyin")
 text = "Exit"
-
-[node name="LevelTest" parent="." instance=ExtResource("3_imu4u")]
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Option" to="." method="_on_option_pressed"]
