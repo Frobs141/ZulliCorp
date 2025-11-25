@@ -40,3 +40,13 @@ func go_on() -> void:
 
 func reset() -> void:
 	currentNode = head
+
+func get_position(node: RoomNode) -> int:
+	var current:RoomNode = head
+	var pos: int = 0
+	while pos < 4 or current == node:
+		current = current.next
+		pos += 1
+	if pos > 3:
+		return -1
+	return pos

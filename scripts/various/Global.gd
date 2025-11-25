@@ -21,6 +21,8 @@ var bottomRightRooms: Array[Array]  = [
 	[true]
 ]
 
+var pastRoom: RoomNode = null
+
 var finalRoomConnected: bool = false
 var level: LevelList
 
@@ -45,6 +47,7 @@ func SelectRoom(rooms: Array) -> Array:
 	return room
 
 func tp_left(room: Node2D) -> void:
+	pastRoom = level.currentNode
 	if room.get_node("tp_up"):
 		level.go_on()
 	elif room.get_node("tp_down"):
@@ -52,6 +55,7 @@ func tp_left(room: Node2D) -> void:
 	get_tree().change_scene(level.currentNode.scene)
 
 func tp_right(room: Node2D) -> void:
+	pastRoom = level.currentNode
 	if room.get_node("tp_down"):
 		level.go_on()
 	elif room.get_node("tp_up"):
@@ -59,6 +63,7 @@ func tp_right(room: Node2D) -> void:
 	get_tree().change_scene(level.currentNode.scene)
 
 func tp_up(room: Node2D) -> void:
+	pastRoom = level.currentNode
 	if room.get_node("tp_left"):
 		level.go_on()
 	elif room.get_node("tp_right"):
@@ -66,6 +71,7 @@ func tp_up(room: Node2D) -> void:
 	get_tree().change_scene(level.currentNode.scene)
 
 func tp_down(room: Node2D) -> void:
+	pastRoom = level.currentNode
 	if room.get_node("tp_right"):
 		level.go_on()
 	elif room.get_node("tp_left"):
