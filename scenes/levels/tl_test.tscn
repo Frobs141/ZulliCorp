@@ -129,12 +129,16 @@ tile_map_data = PackedByteArray("AAD+//3/AQAEAAMAAAD+//7/AQAEAAMAAAD+////AQAEAAM
 tile_set = SubResource("TileSet_bc1hm")
 
 [node name="tp right" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tp right"]
 position = Vector2(415, -66)
 shape = SubResource("RectangleShape2D_2o7pf")
 
 [node name="tp bottom" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tp bottom"]
 position = Vector2(125.5, 66)
