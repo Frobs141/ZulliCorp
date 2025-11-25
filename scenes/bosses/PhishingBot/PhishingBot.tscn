@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://own2f1trd8qq"]
+
+[ext_resource type="PackedScene" uid="uid://bdj1rxks0l3yh" path="res://scenes/bosses/Common/BossBaseTemplate.tscn" id="1_6x2dd"]
+
+[node name="PhishingBot" type="Node2D"]
+
+[node name="BossBaseTemplate" parent="." instance=ExtResource("1_6x2dd")]
