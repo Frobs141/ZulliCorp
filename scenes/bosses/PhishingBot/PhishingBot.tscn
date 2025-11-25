@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://own2f1trd8qq"]
 
 [ext_resource type="PackedScene" uid="uid://bdj1rxks0l3yh" path="res://scenes/bosses/Common/BossBaseTemplate.tscn" id="1_y64u3"]
-[ext_resource type="Script" path="res://scripts/bosses/PhishingBot/PhishingBot.gd" id="2_z9x8v"]
-[ext_resource type="Script" path="res://scripts/bosses/Common/States/BossIdle.gd" id="3_d5e1f"]
-[ext_resource type="Script" path="res://scripts/bosses/Common/States/BossMove.gd" id="4_g6h2j"]
-[ext_resource type="Script" path="res://scripts/bosses/PhishingBot/States/PhishingBotPull.gd" id="5_a4b3c"]
+[ext_resource type="Script" uid="uid://bb0cpjbecroki" path="res://scripts/bosses/PhishingBot/States/PhishingBot.gd" id="2_z9x8v"]
+[ext_resource type="Script" uid="uid://qaj0tes47ipw" path="res://scripts/bosses/Common/States/BossIdle.gd" id="3_d5e1f"]
+[ext_resource type="Script" uid="uid://nh05ekvqumlu" path="res://scripts/bosses/Common/States/BossMove.gd" id="4_g6h2j"]
+[ext_resource type="Script" uid="uid://blib0uo6fcyut" path="res://scripts/bosses/PhishingBot/States/PhishingBotPull.gd" id="5_a4b3c"]
 
 [node name="PhishingBot" instance=ExtResource("1_y64u3")]
 script = ExtResource("2_z9x8v")
