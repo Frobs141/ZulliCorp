@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv10cogrcbrie"]
+[gd_scene load_steps=5 format=3 uid="uid://dv10cogrcbrie"]
 
 [ext_resource type="Script" uid="uid://cvdjk0ohsjg2g" path="res://scripts/bosses/Trojan/States/Trojan.gd" id="1_4n228"]
 [ext_resource type="PackedScene" uid="uid://6g6y4k51clv0" path="res://scenes/bosses/Common/BossBaseTemplate.tscn" id="3_y64u3"]
-[ext_resource type="Script" uid="uid://nh05ekvqumlu" path="res://scripts/bosses/Common/States/BossMove.gd" id="5_g6h2j"]
 [ext_resource type="Script" uid="uid://pb1qddatoluf" path="res://scripts/bosses/Trojan/States/TrojanTank.gd" id="6_a4b3c"]
 [ext_resource type="Script" uid="uid://beuayaw5s6l6w" path="res://scripts/bosses/Trojan/States/TrojanAttack.gd" id="7_z9x8v"]
 
@@ -15,13 +14,10 @@ attack_movement_speed = 200.0
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(0.3, 0.3, 0.3, 1)
 
-[node name="Move2" type="Node" parent="StateMachine" index="1"]
-script = ExtResource("5_g6h2j")
-
-[node name="Tank" type="Node" parent="StateMachine" index="2"]
+[node name="Tank" type="Node" parent="StateMachine" index="1"]
 script = ExtResource("6_a4b3c")
 
-[node name="Attack" type="Node" parent="StateMachine" index="3"]
+[node name="Attack" type="Node" parent="StateMachine" index="2"]
 script = ExtResource("7_z9x8v")
 
 [node name="ElectricHitbox" type="Area2D" parent="." index="3"]
