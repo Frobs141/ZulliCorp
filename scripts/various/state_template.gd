@@ -4,10 +4,10 @@ class_name StateTemplate extends Node
 var controlled_node:Node
 var state_machine:StateMachine
 
-func enter() -> void:
+func start() -> void:
 	pass
 
-func exit() -> void:
+func end() -> void:
 	pass
 
 # CAMBIO: _delta para evitar advertencia
