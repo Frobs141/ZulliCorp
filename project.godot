@@ -27,12 +27,11 @@ Global="*res://scripts/various/Global.gd"
 
 [display]
 
-window/size/viewport_width=384
-window/size/viewport_height=216
-window/size/resizable=false
-window/size/window_width_override=1152
-window/size/window_height_override=648
-window/stretch/mode="canvas_items"
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1120
+window/size/window_height_override=630
+window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
 [editor_plugins]

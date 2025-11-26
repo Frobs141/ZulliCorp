@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://bweexqbfsm33g"]
+[gd_scene load_steps=13 format=4 uid="uid://bweexqbfsm33g"]
 
 [ext_resource type="Script" uid="uid://bgeam1jcwdm72" path="res://addons/project_plugin/scripts/Room.gd" id="1_5kub5"]
 [ext_resource type="Texture2D" uid="uid://bxjo6dyswpxpr" path="res://assets/sprites/nature-paltformer-tileset-16x16_scaled_2x_pngcrushed.png" id="2_vq46n"]
 [ext_resource type="Texture2D" uid="uid://bi0iwgnem1d1g" path="res://assets/tilesets/tilesets.png" id="3_sg6du"]
 [ext_resource type="TileSet" uid="uid://dv0qqpljbexgc" path="res://resources/tileSets.tres" id="4_rkd4u"]
+[ext_resource type="PackedScene" uid="uid://dbx2385qt7rcm" path="res://scenes/player/player.tscn" id="5_sg6du"]
+[ext_resource type="PackedScene" uid="uid://bylx6nbnfrg0b" path="res://scenes/enemies/basic_enemy.tscn" id="6_rkd4u"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8w6cp"]
 load_path = "res://.godot/imported/background.png-83de924b2b0d3b2171a60b2d7a6db5e6.ctex"
@@ -344,3 +346,18 @@ position = Vector2(1863, 426)
 
 [node name="Marker2D" type="Marker2D" parent="Marker2D"]
 position = Vector2(-1532, -583)
+
+[node name="player" parent="." instance=ExtResource("5_sg6du")]
+position = Vector2(310, 113)
+
+[node name="basicEnemy" parent="." instance=ExtResource("6_rkd4u")]
+position = Vector2(138, 117)
+
+[node name="basicEnemy2" parent="." instance=ExtResource("6_rkd4u")]
+position = Vector2(533, 101)
+
+[node name="basicEnemy3" parent="." instance=ExtResource("6_rkd4u")]
+position = Vector2(450, 119)
+
+[node name="basicEnemy4" parent="." instance=ExtResource("6_rkd4u")]
+position = Vector2(209, 121)

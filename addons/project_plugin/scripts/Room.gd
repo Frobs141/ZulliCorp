@@ -28,7 +28,7 @@ func _ready() -> void:
 	if connected < 2:
 		print("Esto no puede ser posible.")
 	
-	spawn_player()
+	#spawn_player()
 
 func bottom() -> void:
 	Global.tp_down(self)

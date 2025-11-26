@@ -22,7 +22,6 @@ texture = ExtResource("2_4mpuu")
 shape = SubResource("RectangleShape2D_4mpuu")
 
 [node name="Hitbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 16
 collision_mask = 2
 
@@ -37,9 +36,9 @@ script = ExtResource("4_4mpuu")
 
 [node name="Display Damage" type="Label" parent="."]
 offset_left = -51.0
-offset_top = -114.0
+offset_top = -59.0
 offset_right = 52.0
-offset_bottom = -72.0
+offset_bottom = -17.0
 theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 vertical_alignment = 1

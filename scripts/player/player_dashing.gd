@@ -1,5 +1,10 @@
 extends PlayerStateTemplate
 
+func start():
+	if player.sprite.animation == "idle":
+		player.sprite.play("run")
+	player.sprite.pause()
+
 func on_physics_process(delta: float) -> void:
 	player.dash_usable = false
 	var prev_speed:float = player.velocity.x
@@ -15,3 +20,6 @@ func on_physics_process(delta: float) -> void:
 			state_machine.change_to(PlayerStates.Idle)
 		else:
 			state_machine.change_to(PlayerStates.Falling)
+
+func end():
+	player.sprite.play()

@@ -1,5 +1,10 @@
 extends PlayerStateTemplate
 
+func start() -> void:
+	if player.sprite.animation == "fall" or player.sprite.animation == "jump":
+		return
+	player.sprite.play("run")
+
 func on_physics_process(delta: float):
 	player.dir = Input.get_axis("ui_left", "ui_right")
 	player.changeDir()

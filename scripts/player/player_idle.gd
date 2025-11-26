@@ -1,5 +1,8 @@
 extends PlayerStateTemplate
 
+func start() -> void:
+	player.sprite.play("idle")
+
 func on_physics_process(delta: float):
 	player.velocity.x = 0
 	if player.dir == 0:

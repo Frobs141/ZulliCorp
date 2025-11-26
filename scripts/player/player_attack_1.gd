@@ -1,11 +1,15 @@
 extends PlayerStateTemplate
 
 func start() -> void:
-	player.attack.play("slash")
+	player.sprite.play("attack")
 	var animation: String = "basic_attack_R" if player.dir >= 0 else "basic_attack_L"
 	$"../../AnimationPlayer".play(animation)
-	
-func _on_animated_sprite_2d_animation_finished() -> void:
+	if player:
+		player.sprite.animation_finished.connect(finished)
+
+func finished() -> void:
+	if not player.sprite.animation == "attack":
+		return
 	if player.is_on_floor():
 		state_machine.change_to(PlayerStates.Idle)
 	else:

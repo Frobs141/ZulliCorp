@@ -1,5 +1,8 @@
 extends PlayerStateTemplate
 
+func start():
+	player.sprite.play("fall")
+
 func on_physics_process(delta: float) -> void:
 	player.velocity.x = 0
 	if player.velocity.y >= 0 and player.is_on_floor():

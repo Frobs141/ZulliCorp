@@ -1,5 +1,8 @@
 extends PlayerStateTemplate
 
+func start():
+	player.sprite.play("jump")
+
 func on_physics_process(delta):
 	# si esta en el suelo y esta parado sobre él, podemos darle impulso de salto
 	if player.is_on_floor() and player.velocity.y >= 0: 
