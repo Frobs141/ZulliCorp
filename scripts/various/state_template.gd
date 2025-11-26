@@ -1,15 +1,24 @@
+#uid://c3qwlix6ki7ne
 class_name StateTemplate extends Node
 
-## referencia al nodo que vamos a controlar
 var controlled_node:Node
-
-## referencia a la maquina de estados
 var state_machine:StateMachine
 
-## método que se ejecuta al entrar en el estado
-func start():
+func enter() -> void:
 	pass
-	
-## método que se ejecuta al abandonar el estado
-func end():
+
+func exit() -> void:
+	pass
+
+# CAMBIO: _delta para evitar advertencia
+func execute(_delta: float) -> void:
+	pass
+
+func on_input(_event:InputEvent) -> void:
+	pass
+
+func on_unhandled_input(_event:InputEvent) -> void:
+	pass
+
+func on_unhandled_key_input(_event:InputEvent) -> void:
 	pass

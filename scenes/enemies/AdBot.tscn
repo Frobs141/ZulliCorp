@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1igsy6wpuc1i"]
+
+[ext_resource type="Shape2D" uid="uid://c2ngomwrfhsg2" path="res://scenes/enemies/adbot_collision.tres" id="1_36asn"]
+[ext_resource type="Script" uid="uid://d2xpindyjklbx" path="res://scripts/enemies/AdBot.gd" id="1_imkdc"]
+
+[node name="AdBot" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_imkdc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.95468724, 0.48452926, 0.95468724, 1)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("1_36asn")
