@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://own2f1trd8qq"]
 
-[ext_resource type="PackedScene" uid="uid://6g6y4k51clv0" path="res://scenes/bosses/Common/BossBaseTemplate.tscn" id="1_y64u3"]
-[ext_resource type="Script" uid="uid://bb0cpjbecroki" path="res://scripts/bosses/PhishingBot/States/PhishingBot.gd" id="2_z9x8v"]
-[ext_resource type="Script" uid="uid://blib0uo6fcyut" path="res://scripts/bosses/PhishingBot/States/PhishingBotPull.gd" id="5_a4b3c"]
+[ext_resource type="PackedScene" uid="uid://6g6y4k51clv0" path="res://scenes/enemies/common/BossBaseTemplate.tscn" id="1_y64u3"]
+[ext_resource type="Script" uid="uid://bb0cpjbecroki" path="res://scripts/bosses/PhishingBot/PhishingBot.gd" id="2_z9x8v"]
+[ext_resource type="Script" uid="uid://blib0uo6fcyut" path="res://scripts/bosses/PhishingBot/PhishingBotPull.gd" id="5_a4b3c"]
 
 [node name="PhishingBot" instance=ExtResource("1_y64u3")]
 script = ExtResource("2_z9x8v")

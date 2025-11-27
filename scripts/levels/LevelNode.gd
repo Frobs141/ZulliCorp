@@ -1,20 +1,19 @@
 class_name LevelNode extends RefCounted # Usamos RefCounted para que se maneje bien la memoria
 
-## Escena del nivel que este nodo representa.
-var level_scene: PackedScene = null 
+# DATO: La escena del nivel que este nodo guarda
+var level_scene: PackedScene = null
 
-## Referencia al nodo de nivel cargado actualmente en la escena.
-var loaded_instance: Node2D = null 
+# DATO EXTRA: Una referencia a la instancia cargada (el jefe vivo)
+var loaded_instance: Node2D = null
 
-## Referencia al nodo siguiente en la lista (circular)
-var next: LevelNode = null 
-
-## Referencia al nodo anterior en la lista (doble)
-var prev: LevelNode = null 
+# PUNTEROS (Referencias)
+var next: LevelNode = null # Puntero al siguiente nodo
+var prev: LevelNode = null # Puntero al nodo anterior
 
 func _init(scene: PackedScene):
 	level_scene = scene
 
+# Función auxiliar para obtener el nombre del nivel (para debug)
 func get_name() -> String:
 	if level_scene:
 		return level_scene.resource_path.get_file().split(".")[0]

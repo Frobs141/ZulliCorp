@@ -1,85 +1,40 @@
 extends Node
 
-var topLeftRooms: Array[Array] = [
-	[preload("res://scenes/levels/tl_test.tscn") ,false],
-	[preload("res://scenes/levels/tl_test.tscn") ,false],
-	[preload("res://scenes/levels/tl_test.tscn") ,true]
-]
-var topRightRooms: Array[Array]  = [
-	[false],
-	[false],
-	[true]
-]
-var bottomLeftRooms: Array[Array]  = [
-	[false],
-	[false],
-	[true]
-]
-var bottomRightRooms: Array[Array]  = [
-	[false],
-	[false],
-	[true]
-]
+# Instancia de nuestra Estructura de Datos
+var level_list: LevelList
 
-var pastRoom: RoomNode = null
+# Variables de estado del juego
+var player_health: int = 100 # Para mantener la vida entre niveles si quieres
 
-var finalRoomConnected: bool = false
-var level: LevelList
-
-func generateLevel() -> void:
-	if level.is_empty():
-		level.add_last(SelectRoom(topLeftRooms))
-		level.add_last(SelectRoom(topRightRooms))
-		level.add_last(SelectRoom(bottomRightRooms))
-		level.add_last(SelectRoom(bottomLeftRooms))
-	else:
-		level.edit_node(1, SelectRoom(topLeftRooms))
-		level.edit_node(2, SelectRoom(topRightRooms))
-		level.edit_node(4, SelectRoom(bottomLeftRooms))
-		level.edit_node(3, SelectRoom(bottomRightRooms))
-
-func SelectRoom(rooms: Array) -> Array:
-	var room: Array
-	if finalRoomConnected:
-		room = rooms.filter(getFalse).pick_random()
-	else:
-		room = rooms.pick_random()
-	return room
-
-func tp_left(room: Node2D) -> void:
-	pastRoom = level.currentNode
-	if room.get_node("tp_up"):
-		level.go_on()
-	elif room.get_node("tp_down"):
-		level.go_back()
-	get_tree().change_scene(level.currentNode.scene)
-
-func tp_right(room: Node2D) -> void:
-	pastRoom = level.currentNode
-	if room.get_node("tp_down"):
-		level.go_on()
-	elif room.get_node("tp_up"):
-		level.go_back()
-	get_tree().change_scene(level.currentNode.scene)
-
-func tp_up(room: Node2D) -> void:
-	pastRoom = level.currentNode
-	if room.get_node("tp_left"):
-		level.go_on()
-	elif room.get_node("tp_right"):
-		level.go_back()
-	get_tree().change_scene(level.currentNode.scene)
-
-func tp_down(room: Node2D) -> void:
-	pastRoom = level.currentNode
-	if room.get_node("tp_right"):
-		level.go_on()
-	elif room.get_node("tp_left"):
-		level.go_back()
-	get_tree().change_scene_to_packed(level.currentNode.scene)
+func _ready():
+	level_list = LevelList.new()
 	
-func tp_final() -> void:
-	get_tree().change_scene_to_packed(preload("res://scenes/levels/final_room.tscn"))
+	# --- AQUÍ SE DEFINEN TUS 3 NIVELES ---
+	# Cuando tu compañero tenga los tilesets, crearemos estas 3 escenas.
+	# Por ahora, usaremos placeholders o las escenas de los jefes si no hay niveles aún.
 	
-func getFalse(room: Array):
-	return room[1] == false
+	# Idealmente:
+	# level_list.add_level("res://scenes/levels/Nivel1.tscn")
+	# level_list.add_level("res://scenes/levels/Nivel2.tscn")
+	# level_list.add_level("res://scenes/levels/Nivel3.tscn")
+	
+	# TEMPORAL (Para probar con lo que tienes):
+	level_list.add_level("res://scenes/bosses/SpamOTron/SpamOTron.tscn") 
+	# (Nota: Esto cargará solo al jefe en el vacío, luego lo cambiaremos por el Nivel completo)
+
+func start_game():
+	load_current_level()
+
+func load_current_level():
+	var path = level_list.get_current_level_path()
+	if path != "":
+		# Cambio de escena seguro
+		call_deferred("_deferred_change_scene", path)
+
+func _deferred_change_scene(path: String):
+	get_tree().change_scene_to_file(path)
+
+func level_completed():
+	print("Nivel Completado. Viajando al siguiente nodo...")
+	level_list.go_next()
+	load_current_level()

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://6g6y4k51clv0"]
 
-[ext_resource type="Script" uid="uid://c57ognpipkbem" path="res://scripts/bosses/Common/States/Boss.gd" id="1_r9v2w"]
-[ext_resource type="Shape2D" uid="uid://s6kpweu8bte0" path="res://scenes/bosses/Common/boss_collision.tres" id="2_f5y6p"]
+[ext_resource type="Script" uid="uid://c57ognpipkbem" path="res://scripts/bosses/common/Boss.gd" id="1_r9v2w"]
+[ext_resource type="Shape2D" uid="uid://s6kpweu8bte0" path="res://scenes/enemies/common/boss_collision.tres" id="2_f5y6p"]
 [ext_resource type="Script" uid="uid://cuifr328g6o2c" path="res://scripts/various/state_machine.gd" id="3_6uhgu"]
-[ext_resource type="Script" uid="uid://qaj0tes47ipw" path="res://scripts/bosses/Common/States/BossIdle.gd" id="3_v8x6w"]
-[ext_resource type="Script" uid="uid://nh05ekvqumlu" path="res://scripts/bosses/Common/States/BossMove.gd" id="4_x9y8z"]
+[ext_resource type="Script" uid="uid://qaj0tes47ipw" path="res://scripts/bosses/common/BossIdle.gd" id="3_v8x6w"]
+[ext_resource type="Script" uid="uid://nh05ekvqumlu" path="res://scripts/bosses/common/BossMove.gd" id="4_x9y8z"]
 
 [node name="Boss" type="CharacterBody2D"]
 script = ExtResource("1_r9v2w")

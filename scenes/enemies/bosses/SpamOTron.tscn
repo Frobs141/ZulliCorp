@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dofw2dwra0afr"]
 
-[ext_resource type="PackedScene" uid="uid://6g6y4k51clv0" path="res://scenes/bosses/Common/BossBaseTemplate.tscn" id="1_y64u3"]
-[ext_resource type="Script" uid="uid://bc7rych25s4um" path="res://scripts/bosses/SpamOTron/States/SpamOTron.gd" id="2_z9x8v"]
-[ext_resource type="Script" uid="uid://i1pyj05i8ijt" path="res://scripts/bosses/Common/States/BossAttack.gd" id="5_a4b3c"]
+[ext_resource type="PackedScene" uid="uid://6g6y4k51clv0" path="res://scenes/enemies/common/BossBaseTemplate.tscn" id="1_y64u3"]
+[ext_resource type="Script" uid="uid://bc7rych25s4um" path="res://scripts/bosses/SpamOTron/SpamOTron.gd" id="2_z9x8v"]
+[ext_resource type="Script" uid="uid://i1pyj05i8ijt" path="res://scripts/bosses/common/BossAttack.gd" id="5_a4b3c"]
 
 [node name="SpamOTron" instance=ExtResource("1_y64u3")]
 script = ExtResource("2_z9x8v")
