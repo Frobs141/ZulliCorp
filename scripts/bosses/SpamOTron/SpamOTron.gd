@@ -5,8 +5,8 @@ class_name SpamOTron extends Boss
 # PROPIEDADES ESPECÍFICAS
 # ----------------------------------------------------
 # Las escenas se precargan para instanciación rápida.
-const GARBAGE_SCENE = preload("res://scenes/bosses/Common/GarbageProjectile.tscn") # Proyectil de basura
-const MINION_SCENE = preload("res://scenes/enemies/AdBot.tscn") # Minion que invoca
+const GARBAGE_SCENE = preload("res://scenes/enemies/common/GarbageProjectile.tscn") # Proyectil de basura
+const MINION_SCENE = preload("res://scenes/enemies/minions/AdBot.tscn") # Minion que invoca
 
 @export var garbage_spawn_rate: float = 0.5 # Disparo cada 0.5 segundos
 @export var minion_spawn_cooldown: float = 10.0 # Invocar minion cada 10 segundos

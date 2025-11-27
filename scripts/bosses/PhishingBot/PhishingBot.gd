@@ -4,7 +4,7 @@ class_name PhishingBot extends Boss
 # ----------------------------------------------------
 # PROPIEDADES Y ESCENAS
 # ----------------------------------------------------
-const HARPOON_SCENE = preload("res://scenes/bosses/PhishingBot/Harpoon.tscn")
+const HARPOON_SCENE = preload("res://scenes/enemies/common/Harpoon.tscn")
 @export var pull_speed: float = 500.0 # Velocidad para jalar al jugador
 @export var close_attack_damage: int = 25 # Daño del golpe de espinas
 @export var close_attack_range: float = 100.0 # Distancia para ejecutar el golpe

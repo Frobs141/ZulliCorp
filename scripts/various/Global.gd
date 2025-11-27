@@ -4,21 +4,20 @@ extends Node
 var level_list: LevelList
 
 # Variables de estado del juego
-var player_health: int = 100 # Para mantener la vida entre niveles si quieres
+var player_health: int = 100 # Para mantener la vida entre niveles 
 
 func _ready():
 	level_list = LevelList.new()
 	
 	# --- AQUÍ SE DEFINEN TUS 3 NIVELES ---
-	# Cuando tu compañero tenga los tilesets, crearemos estas 3 escenas.
-	# Por ahora, usaremos placeholders o las escenas de los jefes si no hay niveles aún.
 	
-	# Idealmente:
-	# level_list.add_level("res://scenes/levels/Nivel1.tscn")
-	# level_list.add_level("res://scenes/levels/Nivel2.tscn")
-	# level_list.add_level("res://scenes/levels/Nivel3.tscn")
+	# Por ahora placeholders
 	
-	# TEMPORAL (Para probar con lo que tienes):
+	#level_list.add_level("res://scenes/levels/Nivel1.tscn")
+	#level_list.add_level("res://scenes/levels/Nivel2.tscn")
+	#level_list.add_level("res://scenes/levels/Nivel3.tscn")
+	
+	# TEMPORAL (Para probar)
 	level_list.add_level("res://scenes/bosses/SpamOTron/SpamOTron.tscn") 
 	# (Nota: Esto cargará solo al jefe en el vacío, luego lo cambiaremos por el Nivel completo)
 

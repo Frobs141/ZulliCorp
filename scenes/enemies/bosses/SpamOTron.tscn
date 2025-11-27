@@ -6,6 +6,8 @@
 
 [node name="SpamOTron" instance=ExtResource("1_y64u3")]
 script = ExtResource("2_z9x8v")
+garbage_spawn_rate = 0.5
+minion_spawn_cooldown = 10.0
 
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(0.8, 0.4, 0.1, 1)
