@@ -85,7 +85,7 @@ func pull_player_and_attack(delta: float):
 func execute_pufferfish_attack():
 	if caught_player and caught_player.has_method("recieve_damage"):
 		# Aplica el daño fuerte del golpe de espinas
-		caught_player.recieve_damage(close_attack_damage)
+		caught_player.take_damage(close_attack_damage)
 		
 		# Libera al jugador y limpia referencias
 		if caught_player.has_method("enable_controls"):

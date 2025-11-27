@@ -37,6 +37,7 @@ func _physics_process(delta: float):
 # ----------------------------------------------------
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		body.take_damage(damage)
 		# 1. Emite la señal con la referencia al jugador y a sí mismo
 		player_caught.emit(body, self)
 		# 2. El arpón debe detenerse y esperar a ser jalado por el jefe
