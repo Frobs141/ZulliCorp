@@ -24,19 +24,19 @@ var bottomRightRooms: Array[Array]  = [
 var pastRoom: RoomNode = null
 
 var finalRoomConnected: bool = false
-var level: LevelList
+var level: LevelList = LevelList.new()
 
 func generateLevel() -> void:
 	if level.is_empty():
-		level.add_last(SelectRoom(topLeftRooms))
-		level.add_last(SelectRoom(topRightRooms))
-		level.add_last(SelectRoom(bottomRightRooms))
-		level.add_last(SelectRoom(bottomLeftRooms))
-	else:
-		level.edit_node(1, SelectRoom(topLeftRooms))
-		level.edit_node(2, SelectRoom(topRightRooms))
-		level.edit_node(4, SelectRoom(bottomLeftRooms))
-		level.edit_node(3, SelectRoom(bottomRightRooms))
+		level.add_last([preload("res://scenes/levels/0-1.tscn"), false])
+		level.add_last([preload("res://scenes/levels/1-1.tscn"), false])
+		level.add_last([preload("res://scenes/levels/2-1.tscn"), false])
+		level.add_last([preload("res://scenes/levels/3-1.tscn"), false])
+	#else:
+		#level.edit_node(1, SelectRoom(topLeftRooms))
+		#level.edit_node(2, SelectRoom(topRightRooms))
+		#level.edit_node(4, SelectRoom(bottomLeftRooms))
+		#level.edit_node(3, SelectRoom(bottomRightRooms))
 
 func SelectRoom(rooms: Array) -> Array:
 	var room: Array

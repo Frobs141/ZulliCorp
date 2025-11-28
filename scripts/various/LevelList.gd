@@ -10,10 +10,11 @@ func add_last(room: Array) -> void:
 	var roomAdded = RoomNode.new(room[0], room[1])
 	if self.is_empty():
 		head = roomAdded
-		currentNode = head
+		roomAdded.next = head
+		currentNode = roomAdded
 		return
 	
-	var current: RoomNode = head
+	var current: RoomNode = self.head
 	while current.next != self.head:
 		current = current.next
 	
